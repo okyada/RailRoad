@@ -68,6 +68,8 @@ class ModelsDiagram < AppDiagram
           ]
           magic_fields << current_class.table_name + "_count" if current_class.respond_to? 'table_name' 
           content_columns = current_class.content_columns.select {|c| ! magic_fields.include? c.name}
+        elsif @options.show_id
+          content_columns = current_class.columns
         else
           content_columns = current_class.content_columns
         end

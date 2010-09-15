@@ -28,6 +28,7 @@ class OptionsStruct < OpenStruct
                      :plugins_models => false,
                      :root => '',
                      :show_belongs_to => false,
+                     :show_id => false,
                      :transitive => false,
                      :verbose => false,
                      :xmi => false,
@@ -80,6 +81,9 @@ class OptionsStruct < OpenStruct
       end
       opts.on("--show-belongs_to", "Show belongs_to associations") do |s|
         self.show_belongs_to = s
+      end
+      opts.on("--show-id", "Show id, *_id column") do |s|
+        self.show_id = s
       end
       opts.on("--hide-magic", "Hide magic field names") do |h|
         self.hide_magic = h
