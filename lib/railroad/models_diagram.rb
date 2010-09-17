@@ -77,6 +77,7 @@ class ModelsDiagram < AppDiagram
         content_columns.each do |a|
           content_column = a.name
           content_column += ' :' + a.type.to_s unless @options.hide_types
+          content_column += " - " + a.comment unless a.comment.blank?
           node_attribs << content_column
         end
       end
